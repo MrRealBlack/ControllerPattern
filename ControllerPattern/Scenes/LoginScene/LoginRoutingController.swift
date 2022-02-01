@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginRoutingControllerProtocol {
+protocol LoginRoutingControllerProtocol: RouterMainProtocol {
     func showHomePage()
 }
 
@@ -20,11 +20,11 @@ class LoginRoutingController: BasicRoutingController, LoginRoutingControllerProt
     }
     
     func showLoading() {
-        
+        presenter.showLoading()
     }
     
     func hideLoading() {
-        
+        presenter.hideLoading()
     }
     
     func showHomePage() {

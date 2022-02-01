@@ -5,7 +5,6 @@
 //  Created by Mehdi Gilanpour on 1/31/22.
 //
 
-import UIKit
 import CoreData
 
 struct UserModel {
@@ -14,10 +13,17 @@ struct UserModel {
     var id: String
 }
 
-class UserCoreDataController: BasicCoreDataController {
-    
-    static let instance = UserCoreDataController()
+protocol UserCoreDataControllerProtocol {
+    func setUser(_ user: UserModel)
+    func getUsers() -> [UserModel]
+    func getUser(byId id: String) -> UserModel?
+    func deleteAllUsers()
+    func editUser(_ editedUser: UserModel)
+    func deleteUser(_ user: UserModel)
+}
 
+class UserCoreDataController: BasicCoreDataController, UserCoreDataControllerProtocol {
+    
     fileprivate func modelToManagedObject(_ model: UserModel) -> User {
         let data = User(context: managedObjectContext)
         data.username = model.username
@@ -84,7 +90,7 @@ class UserCoreDataController: BasicCoreDataController {
         }
     }
     
-    func isUserExists(with id: String) -> Bool {
+    fileprivate func isUserExists(with id: String) -> Bool {
         return getUsers().filter({ $0.id == id }).count != 0
     }
 }

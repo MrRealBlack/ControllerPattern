@@ -34,6 +34,7 @@
 		47857D7127A8479C00CD4D5C /* BasicCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47857D7027A8479C00CD4D5C /* BasicCoreDataController.swift */; };
 		47857D8427A84C4A00CD4D5C /* UserCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47857D8327A84C4A00CD4D5C /* UserCoreDataController.swift */; };
 		47857D8627A84EE700CD4D5C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47857D8527A84EE700CD4D5C /* UserDefaults.swift */; };
+		47857D8827A869BA00CD4D5C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 47857D8727A869BA00CD4D5C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		47857D7027A8479C00CD4D5C /* BasicCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCoreDataController.swift; sourceTree = "<group>"; };
 		47857D8327A84C4A00CD4D5C /* UserCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataController.swift; sourceTree = "<group>"; };
 		47857D8527A84EE700CD4D5C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		47857D8727A869BA00CD4D5C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,7 @@
 			children = (
 				3EDC0E7B27A3E4990092E1EA /* BasicControllers */,
 				3EDC0E9E27A3FAC70092E1EA /* NetworkServices */,
-				47857D8227A84C0C00CD4D5C /* CoreDataControllers */,
+				47857D8227A84C0C00CD4D5C /* DataBaseControllers */,
 				3EDC0E7E27A3E53C0092E1EA /* Extensions */,
 				3EDC0E7C27A3E4AD0092E1EA /* Resources */,
 				3EDC0E7A27A3E4700092E1EA /* Scenes */,
@@ -161,7 +163,7 @@
 				3EDC0E4A27A3E3990092E1EA /* Assets.xcassets */,
 				3EDC0E4C27A3E3990092E1EA /* LaunchScreen.storyboard */,
 				3EDC0E4F27A3E3990092E1EA /* Info.plist */,
-				3EDC0E4727A3E3980092E1EA /* ControllerPattern.xcdatamodeld */,
+				47857D8727A869BA00CD4D5C /* README.md */,
 			);
 			path = ControllerPattern;
 			sourceTree = "<group>";
@@ -187,45 +189,13 @@
 		3EDC0E7127A3E3C10092E1EA /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				3EDC0E7527A3E3F10092E1EA /* RoutingController */,
-				3EDC0E7427A3E3DB0092E1EA /* NetworkController */,
-				3EDC0E7327A3E3D10092E1EA /* LogicController */,
-				3EDC0E7227A3E3CC0092E1EA /* ViewController */,
-			);
-			path = LoginScene;
-			sourceTree = "<group>";
-		};
-		3EDC0E7227A3E3CC0092E1EA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
+				3EDC0EA327A400E80092E1EA /* LoginRoutingController.swift */,
+				3EDC0E8927A3F2D60092E1EA /* LoginNetworkController.swift */,
+				3EDC0E8727A3F14C0092E1EA /* LoginLogicController.swift */,
 				3EDC0E4227A3E3980092E1EA /* LoginViewController.swift */,
 				3EDC0E8527A3F1030092E1EA /* LoginViewController.xib */,
 			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3EDC0E7327A3E3D10092E1EA /* LogicController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDC0E8727A3F14C0092E1EA /* LoginLogicController.swift */,
-			);
-			path = LogicController;
-			sourceTree = "<group>";
-		};
-		3EDC0E7427A3E3DB0092E1EA /* NetworkController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDC0E8927A3F2D60092E1EA /* LoginNetworkController.swift */,
-			);
-			path = NetworkController;
-			sourceTree = "<group>";
-		};
-		3EDC0E7527A3E3F10092E1EA /* RoutingController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDC0EA327A400E80092E1EA /* LoginRoutingController.swift */,
-			);
-			path = RoutingController;
+			path = LoginScene;
 			sourceTree = "<group>";
 		};
 		3EDC0E7627A3E42D0092E1EA /* NetworkController */ = {
@@ -239,30 +209,6 @@
 			path = NetworkController;
 			sourceTree = "<group>";
 		};
-		3EDC0E7727A3E4400092E1EA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDC0EA127A3FF740092E1EA /* BasicViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3EDC0E7827A3E4490092E1EA /* LogicController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDB74C927A402ED00D39C58 /* BasicLogicController.swift */,
-			);
-			path = LogicController;
-			sourceTree = "<group>";
-		};
-		3EDC0E7927A3E4570092E1EA /* RoutingController */ = {
-			isa = PBXGroup;
-			children = (
-				3EDC0EA527A4011E0092E1EA /* BasicRoutingController.swift */,
-			);
-			path = RoutingController;
-			sourceTree = "<group>";
-		};
 		3EDC0E7A27A3E4700092E1EA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,10 +220,10 @@
 		3EDC0E7B27A3E4990092E1EA /* BasicControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4794031827A67AA20073427B /* LocalDataController */,
-				3EDC0E7927A3E4570092E1EA /* RoutingController */,
-				3EDC0E7827A3E4490092E1EA /* LogicController */,
-				3EDC0E7727A3E4400092E1EA /* ViewController */,
+				47857D7027A8479C00CD4D5C /* BasicCoreDataController.swift */,
+				3EDC0EA527A4011E0092E1EA /* BasicRoutingController.swift */,
+				3EDB74C927A402ED00D39C58 /* BasicLogicController.swift */,
+				3EDC0EA127A3FF740092E1EA /* BasicViewController.swift */,
 				3EDC0E7627A3E42D0092E1EA /* NetworkController */,
 			);
 			path = BasicControllers;
@@ -353,20 +299,13 @@
 			path = NetworkServices;
 			sourceTree = "<group>";
 		};
-		47857D8227A84C0C00CD4D5C /* CoreDataControllers */ = {
+		47857D8227A84C0C00CD4D5C /* DataBaseControllers */ = {
 			isa = PBXGroup;
 			children = (
 				47857D8327A84C4A00CD4D5C /* UserCoreDataController.swift */,
+				3EDC0E4727A3E3980092E1EA /* ControllerPattern.xcdatamodeld */,
 			);
-			path = CoreDataControllers;
-			sourceTree = "<group>";
-		};
-		4794031827A67AA20073427B /* LocalDataController */ = {
-			isa = PBXGroup;
-			children = (
-				47857D7027A8479C00CD4D5C /* BasicCoreDataController.swift */,
-			);
-			path = LocalDataController;
+			path = DataBaseControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +413,7 @@
 			files = (
 				3EDC0E4E27A3E3990092E1EA /* LaunchScreen.storyboard in Resources */,
 				3EDC0E4B27A3E3990092E1EA /* Assets.xcassets in Resources */,
+				47857D8827A869BA00CD4D5C /* README.md in Resources */,
 				3EDC0E8627A3F1030092E1EA /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAGH69M7AR;
 				INFOPLIST_FILE = ControllerPattern/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,7 +651,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAGH69M7AR;
 				INFOPLIST_FILE = ControllerPattern/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
