@@ -8,7 +8,7 @@ A simple and powerful design pattern for iOS apps
 
 #### Controller Pattern Concepts
 The main goal from bring up this pattern is dividing layers as simplest way I can. Main layers are just `View` and `Logic` or `ViewController` and `LogicController`. ViewController has just one responsibility: Modifing the view.
-The main layer is LogicController that has many controllers as it needs. Each controller has a responsibility and is seperate from antoher controller.
+The main layer is LogicController that has as many controllers as it needs. Each controller has a responsibility and is seperate from antoher controller.
 
 ### High Level Layers
 
