@@ -7,14 +7,14 @@
 
 import UIKit
 
-class LoginViewController: BasicViewController , BasicViewControllerPropertiesProtocol, LoginViewProtocol {
+class LoginViewController: BasicViewController, LoginViewControllerProtocol {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
-    var logicController: LoginLogicController!
+    var logicController: LoginLogicControllerProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +24,13 @@ class LoginViewController: BasicViewController , BasicViewControllerPropertiesPr
     }
     
     func setLogicController() {
-        logicController = LoginLogicController(loginScene: self)
+        logicController = LoginLogicController(loginView: self,
+                                               router: LoginRoutingController(presenter: self))
     }
 
     @IBAction func logicButtonTouchUpInSide(_ sender: Any) {
-        logicController.login(username: usernameTextField.text!, password: passwordTextField.text!)
+        logicController.login(username: usernameTextField.text!,
+                              password: passwordTextField.text!)
     }
     
     func display(error: String) {

@@ -11,7 +11,11 @@ protocol BasicViewControllerPropertiesProtocol {
     func setLogicController()
 }
 
-class BasicViewController: UIViewController {
+extension BasicViewControllerPropertiesProtocol {
+    func setLogicController() {}
+}
+
+class BasicViewController: UIViewController, BasicViewControllerPropertiesProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()

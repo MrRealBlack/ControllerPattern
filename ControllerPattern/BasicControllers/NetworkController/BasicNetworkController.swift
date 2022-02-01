@@ -9,7 +9,7 @@ import UIKit
 import SystemConfiguration
 
 protocol ApiClient {
-    func execute<T>(request: BasicRequestModel, completionHandler: @escaping (_ result: Result<BasicResponseModel<T>>) -> Void)
+    func executeRequest<T>(_ request: BasicRequestModel, completionHandler: @escaping (_ result: Result<BasicResponseModel<T>>) -> Void)
 }
 
 protocol URLSessionProtocol {
@@ -31,17 +31,6 @@ class BasicNetworkController: ApiClient {
         self.urlSession = urlSession
     }
     
-    func convertToDictionary(_ jsonString: String) -> [String: Any]? {
-        if let data = jsonString.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-    
     // MARK: - ApiClient
     
     fileprivate func done<T>(request: BasicRequestModel, data: Data?, response: URLResponse?, error: Error?, completionHandler: @escaping (Result<BasicResponseModel<T>>) -> Void) {
@@ -51,7 +40,7 @@ class BasicNetworkController: ApiClient {
         }
         
         if let data = data, let utf8Text = String(data: data, encoding: .utf8) {
-            let jsonData = convertToDictionary(utf8Text)
+            let jsonData = utf8Text.convertToDictionary()
             if let jsonData = jsonData {
                 do {
                     let json = try JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
@@ -76,7 +65,7 @@ class BasicNetworkController: ApiClient {
         }
     }
     
-    func execute<T>(request: BasicRequestModel, completionHandler: @escaping (Result<BasicResponseModel<T>>) -> Void) {
+    func executeRequest<T>(_ request: BasicRequestModel, completionHandler: @escaping (Result<BasicResponseModel<T>>) -> Void) {
         if isInternetAvailable() {
             #if DEBUG
             print("request URL: ", request.urlRequest.url?.absoluteString ?? "")

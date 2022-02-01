@@ -9,17 +9,17 @@ import Foundation
 
 typealias loginCompletionHandler = (_ response: Result<LoginServiceResponseModel>) -> Void
 
-protocol LoginSceneNetworkCasesProtocol {
+protocol LoginNetworkControllerProtocol {
     func login(username: String, password: String, completionHandler: @escaping loginCompletionHandler)
 }
 
-class LoginNetworkController: BasicNetworkController, LoginSceneNetworkCasesProtocol {
+class LoginNetworkController: BasicNetworkController, LoginNetworkControllerProtocol {
     
     func login(username: String, password: String, completionHandler: @escaping loginCompletionHandler) {
         
         let request = LoginServiceRequestModel(loginParameters: LoginParameters(username: username, password: password))
 
-        execute(request: request) { (result: Result<BasicResponseModel<RootResponseModel<LoginServiceResponseModel>>>) in
+        executeRequest(request) { (result: Result<BasicResponseModel<RootResponseModel<LoginServiceResponseModel>>>) in
             switch result {
             case let .success(response):
                 if response.entity.successful, let resp = response.entity.response {

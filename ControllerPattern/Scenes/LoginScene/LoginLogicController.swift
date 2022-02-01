@@ -7,26 +7,29 @@
 
 import Foundation
 
-protocol LoginViewProtocol {
+protocol LoginViewControllerProtocol {
     func display(error: String)
     func showLoading()
     func hideLoading()
 }
 
-protocol LoginSceneLogicProtocol: BasicLogicProtocol {
+protocol LoginLogicControllerProtocol: BasicLogicProtocol {
     func login(username: String, password: String)
 }
 
-class LoginLogicController: BasicLogicController, LoginSceneLogicProtocol {
+class LoginLogicController: BasicLogicController, LoginLogicControllerProtocol {
     
-    let networkController: LoginNetworkController
-    var routingController: LoginRoutingController
-    var loginViewController: LoginViewController
+    var coreDataController: UserCoreDataControllerProtocol
+    var networkController: LoginNetworkControllerProtocol
+    var routingController: LoginRoutingControllerProtocol
+    var loginViewController: LoginViewControllerProtocol
     
-    init(loginScene: LoginViewController) {
-        self.loginViewController = loginScene
-        routingController = LoginRoutingController(presenter: loginScene)
-        networkController = LoginNetworkController(urlSessionConfiguration: URLSessionConfiguration.default, completionHandlerQueue: OperationQueue.main)
+    init(loginView: LoginViewControllerProtocol, router: LoginRoutingControllerProtocol) {
+        self.loginViewController = loginView
+        routingController = router
+        coreDataController = UserCoreDataController()
+        networkController = LoginNetworkController(urlSessionConfiguration: URLSessionConfiguration.default,
+                                                   completionHandlerQueue: OperationQueue.main)
     }
     
     override func viewDidLoad() {
@@ -35,13 +38,13 @@ class LoginLogicController: BasicLogicController, LoginSceneLogicProtocol {
     
     func login(username: String, password: String) {
         if validate(username: username, password: password) {
-            loginViewController.showLoading()
+            routingController.showLoading()
             networkController.login(username: username, password: password) { result in
-                self.loginViewController.hideLoading()
+                self.routingController.hideLoading()
                 switch result {
                 case .success(let data):
                     UserDefaults.token = data.token
-                    UserCoreDataController.instance.setUser(UserModel(username: data.username, role: data.role, id: data.userId))
+                    self.coreDataController.setUser(UserModel(username: data.username, role: data.role, id: data.userId))
                     self.routingController.showHomePage()
                 case .failure(let error):
                     self.loginViewController.display(error: error.message)
