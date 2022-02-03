@@ -1,4 +1,4 @@
-![Uploading Screen Shot 2022-02-03 at 6.11.52 PM.png…]().   # ControllerPattern 
+![Uploading Screen Shot 2022-02-03 at 6.11.52 PM.png…]()
 
 # ControllerPattern 
 A simple and powerful design pattern for iOS apps
