@@ -1,9 +1,10 @@
-![Screen Shot 2022-02-03 at 6 14 31 PM](https://user-images.githubusercontent.com/20265908/152365185-b11788bd-b07b-4923-8777-9d256dbd15b1.png)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/20265908/152365185-b11788bd-b07b-4923-8777-9d256dbd15b1.png"/>
+</p>
 
 # ControllerPattern 
 A simple and powerful design pattern for iOS apps
-
-![Screen Shot 2022-02-03 at 5 41 32 PM](https://user-images.githubusercontent.com/20265908/152364263-9296ad0f-8a1d-4226-9428-773e5dc2586d.png)
 
 ### Run Requirements
 
@@ -13,6 +14,10 @@ A simple and powerful design pattern for iOS apps
 #### Controller Pattern Concepts
 The main goal from bring up this pattern is dividing layers as simplest way I can. Main layers are just `View` and `Logic` or `ViewController` and `LogicController`. ViewController has just one responsibility: Modifing the view.
 The main layer is LogicController that has many controllers as it needs. Each controller has a responsibility and is seperate from antoher controller.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/20265908/152364263-9296ad0f-8a1d-4226-9428-773e5dc2586d.png"/>
+</p>
 
 ### High Level Layers
 
