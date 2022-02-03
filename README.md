@@ -1,4 +1,4 @@
-![Screen Shot 2022-02-03 at 6 11 52 PM](https://user-images.githubusercontent.com/20265908/152364879-ed7d1c70-0224-49c0-884c-bef69047e911.png)
+![Screen Shot 2022-02-03 at 6 14 31 PM](https://user-images.githubusercontent.com/20265908/152365185-b11788bd-b07b-4923-8777-9d256dbd15b1.png)
 
 # ControllerPattern 
 A simple and powerful design pattern for iOS apps
